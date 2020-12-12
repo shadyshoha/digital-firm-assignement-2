@@ -10,7 +10,7 @@ class Forecaster():
 
     Attributes
     ----------
-    database : Database
+    database : Database      
 
     Methods
     -------
