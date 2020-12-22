@@ -1,0 +1,1222 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Assignement 2 - Making Big Bucks</title><script>var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(u){var c=/\blang(?:uage)?-([\w-]+)\b/i,n=0,_={manual:u.Prism&&u.Prism.manual,disableWorkerMessageHandler:u.Prism&&u.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof M?new M(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++n}),e.__id},clone:function t(e,r){var a,n;switch(r=r||{},_.util.type(e)){case"Object":if(n=_.util.objId(e),r[n])return r[n];for(var i in a={},r[n]=a,e)e.hasOwnProperty(i)&&(a[i]=t(e[i],r));return a;case"Array":return n=_.util.objId(e),r[n]?r[n]:(a=[],r[n]=a,e.forEach(function(e,n){a[n]=t(e,r)}),a);default:return e}},getLanguage:function(e){for(;e&&!c.test(e.className);)e=e.parentElement;return e?(e.className.match(c)||[,"none"])[1].toLowerCase():"none"},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(e){var n=(/at [^(\r\n]*\((.*):.+:.+\)$/i.exec(e.stack)||[])[1];if(n){var t=document.getElementsByTagName("script");for(var r in t)if(t[r].src==n)return t[r]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{extend:function(e,n){var t=_.util.clone(_.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(t,e,n,r){var a=(r=r||_.languages)[t],i={};for(var l in a)if(a.hasOwnProperty(l)){if(l==e)for(var o in n)n.hasOwnProperty(o)&&(i[o]=n[o]);n.hasOwnProperty(l)||(i[l]=a[l])}var s=r[t];return r[t]=i,_.languages.DFS(_.languages,function(e,n){n===s&&e!=t&&(this[e]=i)}),i},DFS:function e(n,t,r,a){a=a||{};var i=_.util.objId;for(var l in n)if(n.hasOwnProperty(l)){t.call(n,l,n[l],r||l);var o=n[l],s=_.util.type(o);"Object"!==s||a[i(o)]?"Array"!==s||a[i(o)]||(a[i(o)]=!0,e(o,t,l,a)):(a[i(o)]=!0,e(o,t,null,a))}}},plugins:{},highlightAll:function(e,n){_.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};_.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),_.hooks.run("before-all-elements-highlight",r);for(var a,i=0;a=r.elements[i++];)_.highlightElement(a,!0===n,r.callback)},highlightElement:function(e,n,t){var r=_.util.getLanguage(e),a=_.languages[r];e.className=e.className.replace(c,"").replace(/\s+/g," ")+" language-"+r;var i=e.parentElement;i&&"pre"===i.nodeName.toLowerCase()&&(i.className=i.className.replace(c,"").replace(/\s+/g," ")+" language-"+r);var l={element:e,language:r,grammar:a,code:e.textContent};function o(e){l.highlightedCode=e,_.hooks.run("before-insert",l),l.element.innerHTML=l.highlightedCode,_.hooks.run("after-highlight",l),_.hooks.run("complete",l),t&&t.call(l.element)}if(_.hooks.run("before-sanity-check",l),!l.code)return _.hooks.run("complete",l),void(t&&t.call(l.element));if(_.hooks.run("before-highlight",l),l.grammar)if(n&&u.Worker){var s=new Worker(_.filename);s.onmessage=function(e){o(e.data)},s.postMessage(JSON.stringify({language:l.language,code:l.code,immediateClose:!0}))}else o(_.highlight(l.code,l.grammar,l.language));else o(_.util.encode(l.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};return _.hooks.run("before-tokenize",r),r.tokens=_.tokenize(r.code,r.grammar),_.hooks.run("after-tokenize",r),M.stringify(_.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new i;return z(a,a.head,e),function e(n,t,r,a,i,l){for(var o in r)if(r.hasOwnProperty(o)&&r[o]){var s=r[o];s=Array.isArray(s)?s:[s];for(var u=0;u<s.length;++u){if(l&&l.cause==o+","+u)return;var c=s[u],g=c.inside,f=!!c.lookbehind,h=!!c.greedy,d=c.alias;if(h&&!c.pattern.global){var v=c.pattern.toString().match(/[imsuy]*$/)[0];c.pattern=RegExp(c.pattern.source,v+"g")}for(var p=c.pattern||c,m=a.next,y=i;m!==t.tail&&!(l&&y>=l.reach);y+=m.value.length,m=m.next){var k=m.value;if(t.length>n.length)return;if(!(k instanceof M)){var b,x=1;if(h){if(!(b=W(p,y,n,f)))break;var w=b.index,A=b.index+b[0].length,P=y;for(P+=m.value.length;P<=w;)m=m.next,P+=m.value.length;if(P-=m.value.length,y=P,m.value instanceof M)continue;for(var S=m;S!==t.tail&&(P<A||"string"==typeof S.value);S=S.next)x++,P+=S.value.length;x--,k=n.slice(y,P),b.index-=y}else if(!(b=W(p,0,k,f)))continue;var w=b.index,E=b[0],O=k.slice(0,w),L=k.slice(w+E.length),N=y+k.length;l&&N>l.reach&&(l.reach=N);var j=m.prev;O&&(j=z(t,j,O),y+=O.length),I(t,j,x);var C=new M(o,g?_.tokenize(E,g):E,d,E);m=z(t,j,C),L&&z(t,m,L),1<x&&e(n,t,r,m.prev,y,{cause:o+","+u,reach:N})}}}}}(e,a,n,a.head,0),function(e){var n=[],t=e.head.next;for(;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=_.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=_.hooks.all[e];if(t&&t.length)for(var r,a=0;r=t[a++];)r(n)}},Token:M};function M(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function W(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function i(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function z(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function I(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;(n.next=r).prev=n,e.length-=a}if(u.Prism=_,M.stringify=function n(e,t){if("string"==typeof e)return e;if(Array.isArray(e)){var r="";return e.forEach(function(e){r+=n(e,t)}),r}var a={type:e.type,content:n(e.content,t),tag:"span",classes:["token",e.type],attributes:{},language:t},i=e.alias;i&&(Array.isArray(i)?Array.prototype.push.apply(a.classes,i):a.classes.push(i)),_.hooks.run("wrap",a);var l="";for(var o in a.attributes)l+=" "+o+'="'+(a.attributes[o]||"").replace(/"/g,"&quot;")+'"';return"<"+a.tag+' class="'+a.classes.join(" ")+'"'+l+">"+a.content+"</"+a.tag+">"},!u.document)return u.addEventListener&&(_.disableWorkerMessageHandler||u.addEventListener("message",function(e){var n=JSON.parse(e.data),t=n.language,r=n.code,a=n.immediateClose;u.postMessage(_.highlight(r,_.languages[t],t)),a&&u.close()},!1)),_;var e=_.util.currentScript();function t(){_.manual||_.highlightAll()}if(e&&(_.filename=e.src,e.hasAttribute("data-manual")&&(_.manual=!0)),!_.manual){var r=document.readyState;"loading"===r||"interactive"===r&&e&&e.defer?document.addEventListener("DOMContentLoaded",t):window.requestAnimationFrame?window.requestAnimationFrame(t):window.setTimeout(t,16)}return _}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"string-interpolation":{pattern:/(?:f|rf|fr)(?:("""|''')[\s\S]*?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2)/i,greedy:!0,inside:{interpolation:{pattern:/((?:^|[^{])(?:{{)*){(?!{)(?:[^{}]|{(?!{)(?:[^{}]|{(?!{)(?:[^{}])+})+})+}/,lookbehind:!0,inside:{"format-spec":{pattern:/(:)[^:(){}]+(?=}$)/,lookbehind:!0},"conversion-option":{pattern:/![sra](?=[:}]$)/,alias:"punctuation"},rest:null}},string:/[\s\S]+/}},"triple-quoted-string":{pattern:/(?:[rub]|rb|br)?("""|''')[\s\S]*?\1/i,greedy:!0,alias:"string"},string:{pattern:/(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,greedy:!0},function:{pattern:/((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,lookbehind:!0},"class-name":{pattern:/(\bclass\s+)\w+/i,lookbehind:!0},decorator:{pattern:/(^\s*)@\w+(?:\.\w+)*/im,lookbehind:!0,alias:["annotation","punctuation"],inside:{punctuation:/\./}},keyword:/\b(?:and|as|assert|async|await|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|nonlocal|not|or|pass|print|raise|return|try|while|with|yield)\b/,builtin:/\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,boolean:/\b(?:True|False|None)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.python["string-interpolation"].inside.interpolation.inside.rest=Prism.languages.python,Prism.languages.py=Prism.languages.python;
+</script>
+<style>
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b70b924e-6497-44a8-8c31-7d52b65539fd" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📈</span></div><h1 class="page-title">Assignement 2 - Making Big Bucks</h1></header><div class="page-body"><h1 id="8826890f-ac74-4f7b-8a1f-7899bdf83bff" class="">💡 Presentation of the problem</h1><blockquote id="4d138dd2-4118-409a-b2cd-9201d73e478c" class="">Who never thought about trading? Nobody, right? </blockquote><blockquote id="5fa8e36c-1a5c-4895-9567-b42316f3522c" class="">But the main problem with trading is that it implies trying to beat people far more experienced than us and with a lot of means. Which means? Computers. </blockquote><blockquote id="e64c9471-df88-4f63-bfb1-9fe9a1e46195" class="">Indeed computers are so much more effective than humans that in February 2017, news Goldman Sach’s New York headquarters fired 600 traders and replaced them with some 200 computer engineers who are overseeing automated trading programs. </blockquote><blockquote id="0ac85f09-7213-4f1e-88e6-535c609180df" class="">So let&#x27;s do the same for currencies. </blockquote><h1 id="694fea92-d6ce-4f72-b9ff-33e368a442ef" class="">📂 Let&#x27;s create our database</h1><p id="f8ff923c-461b-4098-8624-a930c9bd8b72" class="">First we want to create a Database into SQLite that make the basic function. To be more useful, we create a class called Database.</p><pre id="4a3d9f19-8ccc-4c29-a568-c45965b727cd" class="code"><code class="language-python"># Database.py 
+import sqlite3
+from datetime import datetime
+import json
+import pandas as pd
+
+class Database(): 
+		&quot;&quot;&quot;
+    A class used to create, manage and close the database
+    ...
+
+    Attributes
+    ----------
+    name : str
+		error : str
+		open : bool
+		connection : sqlite3.Connection
+		cursor : sqlite3.cursor		
+
+    Methods
+    -------
+    open()
+        Open the database connection
+		close()
+				Close the database connection
+		createCurrencyTable(currency) 
+				Create a table for the currency in the database if it not already exists
+		insertCurrency(nameTable, currElems) 
+				Insert a currency value in the database
+		saveJSON(data, curr) 
+				Save the a JSON data in the table of the curr
+		createBackup() 
+				Create a copy of the database to have backup for the development phase
+		readSqliteTable(tableName) 
+				Read the table in the database and return it in dataframe
+    &quot;&quot;&quot;
+    def __init__(self, name):
+        self.name = name
+        self.error = &#x27;&#x27;
+        self.open = False
+        try:
+            self.connection = sqlite3.connect(&#x27;{}.db&#x27;.format(name))
+            self.cursor = self.connection.cursor()
+            self.open = True
+
+        except sqlite3.Error as error:
+            self._handleError(error)
+
+
+    def open(self):
+				&quot;&quot;&quot;
+					 Open the database connection
+        &quot;&quot;&quot;
+        try:
+            self.connection = sqlite3.connect(&#x27;{}.db&#x27;.format(name))
+            self.open = True
+            print(&quot;The Sqlite connection is open&quot;)
+        except sqlite3.Error as error:
+            self._handleError(error)
+
+
+    def close(self):
+				&quot;&quot;&quot;
+					 Close the database connection
+        &quot;&quot;&quot;
+        if (self.connection):
+                self.connection.close()
+                self.open = False
+                print(&quot;The Sqlite connection is closed&quot;)
+
+
+    def createCurrencyTable(self, currency):
+        &quot;&quot;&quot;
+        This method create a database with the name of currency and the default 
+        set of parameters of this currency if the table does not already exists
+				...
+
+				Parameters
+        ----------
+        currency : string
+            The type of currency of the table we create
+        &quot;&quot;&quot;
+        try:
+            sqlite_create_table_query = &quot;&quot;&quot;CREATE TABLE IF NOT EXISTS &quot;&quot;&quot;+
+																				currency +&quot;&quot;&quot;( 
+                                        date TEXT NOT NULL PRIMARY KEY,
+                                        value REAL NOT NULL
+                                        );&quot;&quot;&quot;
+            self.cursor.execute(sqlite_create_table_query)
+            self.connection.commit()
+            print(&quot;SQLite table created&quot;)
+
+        except sqlite3.Error as error:
+            self._handleError(error)
+
+
+    def insertCurrency(self, nameTable, currElems):
+        &quot;&quot;&quot;
+        Insert a currency value in the database
+				...
+
+				Parameters
+        ----------
+        nameTable : string
+            The type of the currency which must be the name of a table
+			  currElems : tuple
+						The elements of the currency : date, value 
+        &quot;&quot;&quot;
+        try:
+            sqlite_insert_query = &quot;&quot;&quot;INSERT INTO &quot;&quot;&quot;+nameTable+&quot;&quot;&quot;(date, value) 
+                                VALUES (?, ?);&quot;&quot;&quot;
+            self.cursor.execute(sqlite_insert_query, currElems)
+            self.connection.commit()
+        except sqlite3.Error as error:
+            self._handleError(error)
+
+    def saveJSON(self, data, curr): 
+				&quot;&quot;&quot;
+        Insert a currency value in the database
+				...
+
+				Parameters
+        ----------
+        nameTable : string
+            The type of the currency which must be the name of a table
+			  currElems : tuple
+						The elements of the currency : date, value 
+ 
+        Returns
+        -------
+        float
+            The best estimation of the future currency value according to the 
+            forecasting
+        &quot;&quot;&quot;
+        self.createCurrencyTable(&quot;USD&quot;)
+
+        for year in data[&quot;rates&quot;].keys():
+            print(year + &#x27;: &#x27; + str(data[&quot;rates&quot;][year][curr]))
+            self.insertCurrency(curr, ( year, str(data[&quot;rates&quot;][year][curr])))
+ 
+    def createBackup(self):				
+				&quot;&quot;&quot;
+        Insert a currency value in the database
+				...
+				&quot;&quot;&quot;
+        try:
+						dateInString = datetime.now().strftime(&quot;%m_%Y_%H&quot;)
+						nameOfCopy = &quot;backupOf&quot; + self.name + dateInString
+            backup = Database()
+            with backup:
+                self.connection.backup(backup, pages=3, progress=_progress)
+            print(&quot;backup successful&quot;)
+
+        except sqlite3.Error as error:
+            self._handleError(error)
+
+        finally:
+            if(backup):
+                backup.close()
+
+		def readSqliteTable(self, tableName):
+				&quot;&quot;&quot;
+				Create a copy of the database to have backup for the development
+				...
+
+				Parameters
+        ----------
+        tableName : string
+            The type of the currency which must be the name of a table
+
+        Returns
+        -------
+        dataframe
+            A dataframe of the values of the currency
+        &quot;&quot;&quot;
+        try:
+            print(&quot;Connected to SQLite&quot;)
+            df = pd.read_sql_query( 
+												&quot;SELECT * from {}&quot;.format(tableName),
+												self.connection)
+            return df
+        except sqlite3.Error as error:
+            self._handleError(error)    
+
+    def _handleError(self, error):
+        self.error = error
+        self._printError()
+
+    def _printError(self):
+        print(&quot;Eror in database : &quot;, self.error)
+
+
+    def __str__(self):
+        return f&quot;{self.name}&quot;
+
+    def __del__(self):
+        if (self.open): 
+            self.close()</code></pre><h1 id="328c6576-8af1-4b81-b971-b66cc7eccddb" class="">📡 Next step: use the frankfurter API </h1><p id="06e276f6-bfa7-4a04-8da8-f75d1d97db99" class="">The next step is to create the fetcher, which will use the Frankfurter API to get the precedents values of the currency and put them in the database</p><pre id="2779e0f5-fa94-4f3a-8462-70eefa91a3e0" class="code"><code class="language-python"># Forecaster.py 
+import requests
+from datetime import datetime, date
+import json 
+
+class CurrencyFetcher():
+		&quot;&quot;&quot;
+    A class used to get information for the frankfurter API
+
+    Attributes
+    ----------
+    host: str
+
+    Methods
+    -------
+    open()
+        Open the database connection
+		getOneCurrencyValue()
+				Test the connection with the API, return a value
+		getCurrencies()
+				Return the values and the abbreviation
+		getCurrencyName(currencyCode)
+				Transform an abbreviation into the name of the currency
+		getATimeSerie(currencyCode, beginPeriod, endPeriod)
+				Get and return all the values of a currency from begin to endPeriod
+		currencyPeriodYear(currencyCode, date) 
+				Return a time serie of the value of a currency from a year ago
+	  &quot;&quot;&quot;
+    defaultHost = &#x27;api.frankfurter.app&#x27;
+    def __init__(self, host=defaultHost):
+        self.host = host
+        
+    def getOneCurrencyValue(self):
+				&quot;&quot;&quot;
+				Test the connection with the API, return a value
+				...
+
+        Returns
+        -------
+        string 
+            The get response of the API 
+        &quot;&quot;&quot;
+				url = &#x27;https://{}/latest?amount=10&amp;from=GBP&amp;to=USD&#x27;.format(self.host)
+        res = requests.get(url)
+        return res
+
+    def getCurrencies(self):
+				&quot;&quot;&quot;
+				Return the values and the abbreviation
+				...
+
+        Returns
+        -------
+        json 
+            The different currencies and their abbreviation
+        &quot;&quot;&quot;
+				url = &#x27;https://{host}/currencies&#x27;.format(host=self.host)
+        currencies = requests.get(url).json()
+        return currencies
+
+    def getCurrencyName(self, currencyCode):
+				&quot;&quot;&quot;
+				Transform an abbreviation into the name of the currency
+				...
+
+        Returns
+        -------
+        string 
+            The name of the currency 
+        &quot;&quot;&quot;
+        currencies = self.getCurrencies()
+        return currencies[currencyCode]
+
+    def getATimeSerie(self, currencyCode, beginPeriod, endPeriod=date.today()):
+				&quot;&quot;&quot;
+				Test the connection with the API, return a value
+				...
+				Parameters
+				-------
+				currencyCode: str
+						The code of the currency we want the time serie of
+				beginPeriod: date 
+						The time of the begin of the period of the time serie
+				endPeriod: date 
+						The time of the end of the period of the time serie
+								
+        Returns
+        -------
+        json 
+            The time serie in the form of a json 
+        &quot;&quot;&quot;
+        params = { &#x27;to&#x27; : currencyCode }
+				beginDate = beginPeriod.strftime(&#x27;%Y-%m-%d&#x27;)
+        url = &#x27;https://{}/{}..&#x27;.format(self.host, beginDate)
+        rates = requests.get(url, params=params).json()
+        return rates
+
+    def currencyPeriodYear(self, currencyCode, date=datetime.today()):
+				&quot;&quot;&quot;
+				Return a time serie of the value of a currency from a year ago
+				...
+				Parameters
+				-------
+				currencyCode: str
+						The code of the currency we want the time serie of
+				date: date 
+						The end of the period of one year the time serie
+
+        Returns
+        -------
+        json 
+            The time serie in the form of a json 
+        &quot;&quot;&quot;
+				date = datetime(year=date.year-1, month=date.month, day=date.day)
+        return self.getATimeSerie(currencyCode, date)</code></pre><h1 id="86ff44bd-80c5-4d8e-9d3f-b72d7bc6ef1d" class="">🛠️ Ok... let&#x27;s put that together</h1><p id="2601eac8-6532-4bb2-a184-dc10bb4700f5" class="">After building our Database and Forecaster classes, we put them into a models directory. </p><p id="7e14d447-8938-4eeb-bcc8-e0f787abad06" class="">Once that done, we create &quot;__init__.py&quot; file to let us import our classes from other file. </p><p id="428bb3fa-cb01-4718-9a60-c54e1abe0b1f" class="">Now, let&#x27;s create the &quot;main.py&quot; file</p><pre id="4c9a0700-c3d8-449f-a884-1a65497146d9" class="code"><code class="language-python"># main.py 
+from Models.Fetcher import CurrencyFetcher
+from Models.Database import Database
+
+# We create the database and the fetcher
+database = Database(&quot;Currencies&quot;)
+fetcher = CurrencyFetcher()
+
+# We ask for the currency code to fetch 
+curr = input(&quot;What is the currency you want to forecast? &quot;)
+
+# We pass the result of the fetcher to the database to save the past values
+# of the currency
+database.saveJSON(fetcher.currencyPeriodYear(&quot;USD&quot;), &quot;USD&quot;)
+
+# CLose the database 
+database.close()</code></pre><p id="55509d89-7ee3-44ff-a7b3-31fd524b56cc" class="">This create a database with the name &quot;Currencies&quot; with the dollar values from one year ago in the &quot;USD&quot; table. </p><h1 id="58f0d819-4a99-4fba-932f-71a1bff77f61" class="">🕛 Back to the future - forecasting</h1><p id="2357824e-0563-404f-a249-e5fda49f367e" class="">Ok... now we have the time series for a year in our database and we can now forecast the value of the currency in the future. To forecast the value we will use a double exponential smoothing.</p><pre id="5249e6c3-75c9-4ee2-83c0-a587011d1296" class="code"><code class="language-python"># Forecaster.py
+import pandas as pd 
+import numpy as np
+from .Database import Database 
+import sqlite3
+
+class Forecaster():
+    &quot;&quot;&quot;
+    A class used to forecast the data 
+    ...
+		Attributes
+    ----------
+    database : Database
+
+    Methods
+    -------
+		forecast(curr)
+				Forecast the currency value of tomorrow with the data stored in database
+    double_exponential_smoothin(actuals, alpha, beta)
+        Forecast the next value of the currency according to the double 
+        exponential method. 
+    &quot;&quot;&quot;
+
+    def __init__(self, database): 
+        &quot;&quot;&quot;
+        Parameters
+        ----------
+        database : Database
+            The database where the data of the previous and actual exchange
+            rates are saved. 
+        currency : str
+            The code of the currency we want to forecast.
+        &quot;&quot;&quot;
+        self.database = database 
+
+    def forecast(self, curr):
+        &quot;&quot;&quot; 
+				Forecast the currency value of tomorrow with the data stored in database
+        ...
+				Parameters
+        ----------
+        curr : str
+            The code of the currency we want to forecast the value
+            
+        Returns
+        -------
+        float
+            The best estimation of the future currency value according to the 
+            forecasting
+        &quot;&quot;&quot;
+        # if not self.database.tableExists(curr):
+        #     print(&#x27;Table &quot;{}&quot; does not exist&#x27;.format(curr))
+        #     return
+        try: 
+            actuals = self.database.readSqliteTable(curr)[&quot;value&quot;]
+            forecast = self.double_exponential_smoothing(actuals, 0.5, 0.5)
+            return forecast
+        except sqlite3.OperationalError as error: 
+            print(error)
+        except: 
+            print(&quot;Il y a eu une erreur avec le forecast&quot;)
+
+
+    def double_exponential_smoothing(self, actuals, alpha, beta):
+        &quot;&quot;&quot; Use the double exponential to forecast future exchange rates. 
+        Parameters
+        ----------
+        actuals : dataframe
+            The time-series of the values we already have for the currency
+        alpha : float
+            The first parameter of the double exponential, it is the inerty of
+            the variation in the currency
+        beta : float 
+            The second parameter. 
+            
+        Returns
+        -------
+        float
+            The best estimation of the future currency value according to the 
+            forecasting
+        &quot;&quot;&quot;
+        size_series = len(actuals)
+        
+        forecast = np.full(size_series + 1, np.NaN)
+        a = np.full(size_series + 1, np.NaN)
+        b = np.full(size_series + 1, np.NaN)
+        
+        a[0] = actuals[0]
+        a[1] = actuals[1]
+        b[1] = actuals[1] - actuals[0]
+        
+        for i in range(2, size_series):
+            forecast[i] = a[i - 1] + b[i - 1]
+            a[i] = alpha * actuals[i] + (1 - alpha) * (a[i - 1] + b[i - 1])
+            b[i] = beta * (a[i] - a[i - 1]) + (1 - beta) * b[i - 1]
+            
+        return a[-2] + b[-2]</code></pre><p id="008de25a-cdb3-40f7-af08-6bb742105319" class="">We got our forecasted value! Let&#x27;s begin to be rich!</p><p id="2ba88b6f-a594-4ba4-a55c-121ad34a08ae" class="">...</p><p id="292494c8-f39c-498f-a7da-fa1b58a7aac7" class="">But before, just to be sure. I prefer compare this value to actual one, just to see if the forecasting is doing well. </p><h1 id="666a3339-f323-44a4-807a-a7ffbb71ded7" class="">🔐 Data theft - scraping</h1><p id="cea4c42a-1049-470e-a00a-48ff086aa984" class="">Ok so... we need the actual value. But the we can not have it with Frankfurter (in fact the it provide it but let assume it does not). So let&#x27;s look anywhere else. Let&#x27;s look in the European Central Bank website. </p><pre id="adc53905-b7aa-4f6e-99be-4d0e6dc2b652" class="code"><code class="language-python"># Scraper.py 
+import requests
+from datetime import date, datetime
+from bs4 import BeautifulSoup
+import time
+import pandas as pd
+from requests_futures.sessions import FuturesSession
+
+class Scraper(): 
+    defaultUrl = &quot;https://www.ecb.europa.eu/stats/&quot;+
+									&quot;policy_and_exchange_rates/euro_reference_exchange_rates&quot; +
+									&quot;/html/index.en.html&quot;
+
+    def __init__(self, database):
+        self.lastUpdate = date(1970, 1, 1)
+        self.session = FuturesSession()
+        self.database = database
+
+    def getCurrentReferenceRates(self):
+        future = self.session.get(self.defaultUrl)
+        res = future.result()
+        soup = BeautifulSoup(res.content, &#x27;html.parser&#x27;)
+        table = soup..find(&#x27;table&#x27;, {&#x27;class&#x27; : &#x27;ecb-forexTable fullWidth&#x27;})
+				actualCurrencyRates = []
+        rows = table.find_all(&#x27;tr&#x27;)[1:]
+        currentRates = dict()
+        for row in rows: 
+						elem = row.find_all(&#x27;td&#x27;)
+            currentRates[elem[0].text] = float(elem[2].text)
+        return currentRates
+
+    def readWithPanda(self):
+        df = pd.read_html(self.defaultUrl)
+        return df</code></pre><p id="a2a3ed85-c701-48be-846c-06bab3dca9ea" class="">
+</p><p id="ca28bd2a-8f34-4d54-932d-fa12e5f32513" class="">You can find the code on the following Github </p><figure id="09750b35-e59d-4e6c-b65b-f83d25ca1acf"><a href="https://github.com/shadyshoha/digital-firm-assignement-2" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">shadyshoha/digital-firm-assignement-2</div><div class="bookmark-description">You can&#x27;t perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session. We use optional third-party analytics cookies to understand how you use GitHub.com so we can build better products.</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com/shadyshoha/digital-firm-assignement-2</div></div><img src="https://avatars2.githubusercontent.com/u/48188608?s=400&amp;v=4" class="bookmark-image"/></a></figure></div></article></body></html>
